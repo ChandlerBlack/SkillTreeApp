@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-
-
 /**
  * This class is for the Vault Hunter Axton.
  * This class will contain the skill trees for Axton, and the methods to add skills to the skill tree.
@@ -114,11 +112,10 @@ public class Axton {
     Skill grit = new Skill("Grit", 0, 5);
     Skill gemini = new Skill("Gemini", 0, 1);
 
-
-    
-    
-
-
+    /**
+     * This is the constructor for the Axton class.
+     * @param level
+     */
     public Axton (int level) {
         this.level = level;
         this.skillPoints = level - 5;
@@ -150,6 +147,9 @@ public class Axton {
 
     }
 
+    /**
+     * This is a helper method used to populate the array lists of the skill trees.
+     */
     private void addSkills(){
         // Guerilla
         guerilla.add(sentry);
@@ -195,6 +195,11 @@ public class Axton {
 
     }
 
+    /**
+     * This method will add a skill point to the skill tree.
+     * @param skillTree
+     * @param skillName
+     */
     public void increaceSkill(String skillTree, String skillName){
         switch (skillTree) {
             case "Guerilla":
@@ -223,39 +228,42 @@ public class Axton {
         }
     }
 
+    /**
+     * This method calculates the stats of the character based on the skills invested in.
+     */
     public void calculateStats() {
-        for (Skill skill : guerilla) {
-            switch (skill.getSkillName()) {
+        for (Skill s : guerilla) {
+            switch (s.getSkillName()) {
                 case "Sentry":
-                    totalGunDamage += 1 * skill.getPointsInvested();
-                    totalAccuracy += 2 * skill.getPointsInvested();
+                    totalGunDamage += 1 * s.getPointsInvested();
+                    totalAccuracy += 2 * s.getPointsInvested();
                     break;
                 case "Ready":
-                    totalReloadSpeed += 0.08 * skill.getPointsInvested();
+                    totalReloadSpeed += 0.08 * s.getPointsInvested();
                     break;
                 case "Laser Sight":
-                    turretAccuracy += 0.1 * skill.getPointsInvested();
+                    turretAccuracy += 0.1 * s.getPointsInvested();
                     break;
                 case "Willing":
-                    totalShieldRechargeRate += 0.15 * skill.getPointsInvested();
-                    totalShieldRechargeDelay += -0.12 * skill.getPointsInvested();
+                    totalShieldRechargeRate += 0.15 * s.getPointsInvested();
+                    totalShieldRechargeDelay += -0.12 * s.getPointsInvested();
                     break;
                 case "Onslaught":
-                    totalGunDamage += 0.6 * skill.getPointsInvested();
-                    totalMovementSpeed += 0.12 * skill.getPointsInvested();
+                    totalGunDamage += 0.6 * s.getPointsInvested();
+                    totalMovementSpeed += 0.12 * s.getPointsInvested();
                     break;
                 case "Scorched Earth":
                     turretRocketCount = 22;
                     break;
                 case "Able":
-                    totalHealthRegeneration += 0.04 * skill.getPointsInvested();
+                    totalHealthRegeneration += 0.04 * s.getPointsInvested();
                     break;
                 case "Grenadier":
-                    totalGrenadeCapacity += 1 * skill.getPointsInvested();
+                    totalGrenadeCapacity += 1 * s.getPointsInvested();
                     break;
                 case "Crisis Management":
-                    totalGunDamage += 0.07 * skill.getPointsInvested();
-                    totalMeleeDamage += 0.06 * skill.getPointsInvested();
+                    totalGunDamage += 0.07 * s.getPointsInvested();
+                    totalMeleeDamage += 0.06 * s.getPointsInvested();
                     break;
                 case "Double Up":
                     turretSlag = true;
@@ -362,6 +370,10 @@ public class Axton {
         }
     }
 
+    /**
+     * This method will return the total stats of the character.
+     * @return the skill trees with the points invested in each skill.
+     */
     public String printSkillTrees() {
         String skillTrees = "Guerilla: \n";
         for (Skill skill : guerilla) {
@@ -379,4 +391,3 @@ public class Axton {
     }
 
 }
-    
