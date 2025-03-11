@@ -375,19 +375,58 @@ public class Axton {
      * @return the skill trees with the points invested in each skill.
      */
     public String printSkillTrees() {
-        String skillTrees = "Guerilla: \n";
+        String skillTrees = " \n GUERILLA: \n ";
         for (Skill skill : guerilla) {
             skillTrees += skill.getSkillName() + ": " + skill.getPointsInvested() + "\n";
         }
-        skillTrees += "Gunpowder: \n";
+        skillTrees += "\n GUNPOWDER: \n";
         for (Skill skill : gunpowder) {
             skillTrees += skill.getSkillName() + ": " + skill.getPointsInvested() + "\n";
         }
-        skillTrees += "Survival: \n";
+        skillTrees += "\n SURVIVAL: \n";
         for (Skill skill : survival) {
             skillTrees += skill.getSkillName() + ": " + skill.getPointsInvested() + "\n";
         }
         return skillTrees;
+    }
+
+    /**
+     * This method will return the total stats of the character.
+     * @return the total stats of the character.
+     */
+    public String printVHStats() {
+        return "Level: " + level + "\n" +
+               "Skill Points: " + skillPoints + "\n" +
+               "Total Skill Points: " + totalSkillPoints + "\n" +
+               "Total Skill Points Spent: " + totalSkillPointsSpent + "\n" +
+               "Total Skill Points Remaining: " + totalSkillPointsRemaining + "\n" +
+               "Total Health: " + totalHealth + "\n" +
+               "Total Health Regeneration: " + totalHealthRegeneration + "\n" +
+               "Total Shield Capacity: " + totalShieldCapacity + "\n" +
+               "Total Shield Recharge Rate: " + totalShieldRechargeRate + "\n" +
+               "Total Shield Recharge Delay: " + totalShieldRechargeDelay + "\n" +
+               "Total Grenade Damage: " + totalGrenadeDamage + "\n" +
+               "Total Grenade Capacity: " + totalGrenadeCapacity + "\n" +
+               "Total Gun Damage: " + totalGunDamage + "\n" +
+               "Total Accuracy: " + totalAccuracy + "\n" +
+               "Total Fire Rate: " + totalFireRate + "\n" +
+               "Total Reload Speed: " + totalReloadSpeed + "\n" +
+               "Total Magazine Size: " + totalMagazineSize + "\n" +
+               "Total Elemental Effect Chance: " + totalElementalEffectChance + "\n" +
+               "Total Elemental Effect Damage: " + totalElementalEffectDamage + "\n" +
+               "Total Action Skill Cooldown Rate: " + totalActionSkillCooldownRate + "\n" +
+               "Total Movement Speed: " + totalMovementSpeed + "\n" +
+               "Total Damage Reduction: " + totalDamageReduction + "\n" +
+               "Total Action Skill Duration: " + totalActionSkillDuration + "\n" +
+               "Turret Health: " + turretHealth + "\n" +
+               "Turret Burst Count: " + turretBurstCount + "\n" +
+               "Turret Accuracy: " + turretAccuracy + "\n" +
+               "Turret Rocket Count: " + turretRocketCount + "\n" +
+               "Turret Nuke: " + turretNuke + "\n" +
+               "Turret Gemini: " + turretGemini + "\n" +
+               "Turret Phalanx: " + turretPhalanx + "\n" +
+               "Turret Longbow: " + turretLongbow + "\n" +
+               "Turret Slag: " + turretSlag;
     }
 
 }

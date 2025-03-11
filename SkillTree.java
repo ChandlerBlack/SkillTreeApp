@@ -263,7 +263,8 @@ public class SkillTree {
                 switch (skill) {
                     case 1:
                         axton.increaceSkill("guerilla", "Sentry");
-                        axton.printSkillTrees();
+                        System.out.println(axton.printSkillTrees()); 
+                        System.out.println(axton.printVHStats());
                         break;
                     case 2:
                         axton.increaceSkill("guerilla", "Ready");

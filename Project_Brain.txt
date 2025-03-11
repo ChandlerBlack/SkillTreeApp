@@ -1,0 +1,19 @@
+Needs: 
+
+
+
+Wants: 
+-   GUI
+-   Better runtime speed
+-   Improve the structure of the Driver class, needs better decomposition
+
+
+Issues: 
+-   Loads of them
+
+
+Spitballs: 
+
+-   Maybe could change the structure so that there is a Vault Hunter object that then the different VH's are made from.
+
+-   Expand the Skill class so that its easier to work with individual skills.
