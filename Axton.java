@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * 
  * @author ChandlerBlack
  * @version 0.1
- * @since 2021-09-27
+ * @since 3/7/2025
  */
 public class Axton {
     
@@ -39,6 +39,9 @@ public class Axton {
     private double totalFireRate;
     private double totalReloadSpeed;
     private double totalMagazineSize;
+    private double totalSwapSpeed;
+    private double totalAimSpeed;
+    private double totalRecoilReduction;
 
 
     // Elemental Effects
@@ -53,6 +56,9 @@ public class Axton {
     private double totalMovementSpeed;
     private double totalDamageReduction;
     private int totalActionSkillDuration;
+
+
+    // NOT USED IN CURRENT VERSION
     private int turretHealth;
     private int turretBurstCount = 0;
     private int turretAccuracy = 0;
@@ -105,7 +111,7 @@ public class Axton {
     Skill lastDitchEffort = new Skill("Last Ditch Effort", 0, 1);
     Skill pressure = new Skill("Pressure", 0, 5);
     Skill forbearance = new Skill("Forbearance", 0, 5);
-    Skill phalnaxSheild = new Skill("Phalanx Shield", 0, 1);
+    Skill phalnaxShield = new Skill("Phalanx Shield", 0, 1);
     Skill quickCharge = new Skill("Quick Charge", 0, 5);
     Skill resourceful = new Skill("Resourceful", 0, 5);
     Skill magLock = new Skill("Mag Lock", 0, 1);
@@ -142,6 +148,9 @@ public class Axton {
         this.totalGrenadeCapacity = 0;
         this.totalHealthRegeneration = 0;
         this.totalActionSkillDuration = 0;
+        this.totalSwapSpeed = 0;
+        this.totalAimSpeed = 0;
+        this.totalRecoilReduction = 0;
         addSkills();
 
 
@@ -185,7 +194,7 @@ public class Axton {
         survival.add(lastDitchEffort);
         survival.add(pressure);
         survival.add(forbearance);
-        survival.add(phalnaxSheild);
+        survival.add(phalnaxShield);
         survival.add(quickCharge);
         survival.add(resourceful);
         survival.add(magLock);
@@ -241,9 +250,9 @@ public class Axton {
                 case "Ready":
                     totalReloadSpeed += 0.08 * s.getPointsInvested();
                     break;
-                case "Laser Sight":
-                    turretAccuracy += 0.1 * s.getPointsInvested();
-                    break;
+                // case "Laser Sight":
+                //     turretAccuracy += 0.1 * s.getPointsInvested();
+                //     break;
                 case "Willing":
                     totalShieldRechargeRate += 0.15 * s.getPointsInvested();
                     totalShieldRechargeDelay += -0.12 * s.getPointsInvested();
@@ -252,9 +261,9 @@ public class Axton {
                     totalGunDamage += 0.6 * s.getPointsInvested();
                     totalMovementSpeed += 0.12 * s.getPointsInvested();
                     break;
-                case "Scorched Earth":
-                    turretRocketCount = 22;
-                    break;
+                // case "Scorched Earth":
+                //     turretRocketCount = 22;
+                //     break;
                 case "Able":
                     totalHealthRegeneration += 0.04 * s.getPointsInvested();
                     break;
@@ -265,9 +274,9 @@ public class Axton {
                     totalGunDamage += 0.07 * s.getPointsInvested();
                     totalMeleeDamage += 0.06 * s.getPointsInvested();
                     break;
-                case "Double Up":
-                    turretSlag = true;
-                    break;
+                // case "Double Up":
+                //     turretSlag = true;
+                //     break;
                 default:
                     break;
             }
@@ -295,9 +304,9 @@ public class Axton {
                     totalGrenadeDamage += 0.5 * s.getPointsInvested();
                     totalElementalEffectChance += 0.5 * s.getPointsInvested();
                     break;
-                case "Longbow Turret":
-                    totalActionSkillDuration += 1 * s.getPointsInvested();
-                    break;
+                // case "Longbow Turret":
+                //     totalActionSkillDuration += 1 * s.getPointsInvested();
+                //     break;
                 case "Battlefront":
                     totalGunDamage += 0.5 * s.getPointsInvested();
                     totalAccuracy += 0.5 * s.getPointsInvested();
@@ -314,9 +323,9 @@ public class Axton {
                     totalGunDamage += 0.5 * s.getPointsInvested();
                     totalAccuracy += 0.5 * s.getPointsInvested();
                     break;
-                case "Nuke":
-                    totalGrenadeDamage += 1 * s.getPointsInvested();
-                    break;
+                // case "Nuke":
+                //     totalGrenadeDamage += 1 * s.getPointsInvested();
+                //     break;
                 default:
                     break;
             }
@@ -344,9 +353,9 @@ public class Axton {
                     totalShieldCapacity += 0.5 * s.getPointsInvested();
                     totalShieldRechargeRate += 0.5 * s.getPointsInvested();
                     break;
-                case "Phalanx Shield":
-                    totalShieldCapacity += 1 * s.getPointsInvested();
-                    break;
+                // case "Phalanx Shield":
+                //     totalShieldCapacity += 1 * s.getPointsInvested();
+                //     break;
                 case "Quick Charge":
                     totalShieldRechargeRate += 0.5 * s.getPointsInvested();
                     totalShieldRechargeDelay += 0.5 * s.getPointsInvested();
@@ -361,9 +370,9 @@ public class Axton {
                     totalHealth += 0.5 * s.getPointsInvested();
                     totalHealthRegeneration += 0.4 * s.getPointsInvested();
                     break;
-                case "Gemini":
-                    totalActionSkillDuration += 1 * s.getPointsInvested();
-                    break;
+                // case "Gemini":
+                //     totalActionSkillDuration += 1 * s.getPointsInvested();
+                //     break;
                 default:
                     break;
             }
@@ -417,16 +426,7 @@ public class Axton {
                "Total Action Skill Cooldown Rate: " + totalActionSkillCooldownRate + "\n" +
                "Total Movement Speed: " + totalMovementSpeed + "\n" +
                "Total Damage Reduction: " + totalDamageReduction + "\n" +
-               "Total Action Skill Duration: " + totalActionSkillDuration + "\n" +
-               "Turret Health: " + turretHealth + "\n" +
-               "Turret Burst Count: " + turretBurstCount + "\n" +
-               "Turret Accuracy: " + turretAccuracy + "\n" +
-               "Turret Rocket Count: " + turretRocketCount + "\n" +
-               "Turret Nuke: " + turretNuke + "\n" +
-               "Turret Gemini: " + turretGemini + "\n" +
-               "Turret Phalanx: " + turretPhalanx + "\n" +
-               "Turret Longbow: " + turretLongbow + "\n" +
-               "Turret Slag: " + turretSlag;
+               "Total Action Skill Duration: " + totalActionSkillDuration + "\n";
     }
 
 }
